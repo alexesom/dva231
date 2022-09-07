@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Roboto:wght@300;400;500;700&display=swap");
+
+
+body{
+
+    margin: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: black;
+    font-family: "Roboto", sans-serif;
+}
+
+.grid-container{
+
+   
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(6,1fr);
+    grid-gap: 10px;
+    grid-template-areas: 
+    "logo . nav nav nav nav nav nav"
+    "logo nav2 nav2 nav2 nav2 nav2 nav2 ."
+    "headlines headlines headlines headlines headlines headlines headlines headlines"
+    "headlines headlines headlines headlines headlines headlines headlines headlines"
+    "news1 news1 news2 news2 news3 news3 news3 news3"
+    "news1 news1 news2 news2 news3 news3 news3 news3"
+    "news4 news4 news5 news5 news5 news5 news6 news6"
+    "news4 news4 news5 news5 news5 news5 news6 news6";
+}
+
+
+ul {
+    list-style-type: none;
+  }
+
+ li{
+    border-right: solid 1px white;
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+    
+ }
+
+ li:last-child { 
+    border:none
+ 
+}
+.navbar-div{
+    grid-area: nav;
+    color: white;
+    display: flex;
+    
+}
+
+.navbar{
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 0;
+}
+
+
+.navbar a{
+
+color: var(--font);
+  text-decoration: none;
+  letter-spacing: px;
+  font-weight: bold;
+  font-size: 0.8em;
+ 
+}
+
+
+.navbar li::after {
+    content: "";
+    width: 0%;
+    height: 1px;
+    background-color: white;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+  }
+  .navbar li:hover::after {
+    width: 100%;
+  }
+
+  #search-bar{
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+.logo-div{
+    grid-area: logo;
+    
+}
+
+.navbar2{
+    grid-area: nav2;
+    background-color: white;
+}
+
+.headlines{
+    grid-area: headlines;
+    background-color: white;
+}
+
+.news1{
+    grid-area: news1;
+    background-color: white;
+}
+.news2{
+    grid-area: news2;
+    background-color: white;
+}
+.news3{
+    grid-area: news3;
+}
+.news4{
+    grid-area: news4;
+}
+.news5{
+    grid-area: news5;
+}
+.news6{
+    grid-area: news6;
+}
