@@ -5,25 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>Home</title>
 </head>
 <body>
-    
-    
-
-    <div class="grid-container">
-
-        
-
-
-        <div class="logo-div">
-            <img src="img/logo.jpg" alt="nasa-logo.jpg">
+    <header class="fixed-header">
+        <div class="logo">
+            <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" alt="nasa-logo.jpg">
         </div>
 
-        <div class="navbar-div">
+        <nav class="navbar-wrapper">
             <ul class="navbar">
                 <li> <a href="#">Missions</a></li>
-                <li> <a href="#">Galeries</a></li>
+                <li> <a href="#">Galleries</a></li>
                 <li> <a href="#">NASA TV</a></li>
                 <li> <a href="#">Follow NASA</a></li>
                 <li> <a href="#">Downloads</a></li>
@@ -31,15 +25,37 @@
                 <li> <a href="#">NASA Audiences</a></li>
             </ul>
 
-            <input id="search-bar" type="text" placeholder="Search..">
+            <form class="search-form" action="/search" method="get">
+                <div class="search-wrapper">
+                    <input class="search-bar" type="text" placeholder="Search..">
+                    <button class="search-submit" type="submit">
+                        <i class="uil uil-search"></i>
+                    </button>
+                    <a class="search-share">
+                        <i class="uil uil-share-alt"></i>
+                    </a>             
+                </div>
+            </form>
+        </nav>
+
+        <div class="topics-navbar-wrapper">
+            <ul class="topics-navbar">
+                <li><a href="#">International Space Station</a></li>
+                <li><a href="#">Journey to Mars</a></li>
+                <li><a href="#">Earth</a></li>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">Aeronautics</a></li>
+                <li><a href="#">Solar Space System and Beyond</a></li>
+                <li><a href="#">Education</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Benifits to you</a></li>
+            </ul>
         </div>
-        <div class="navbar2">
-            <p>NAVBAR2</p>
-        </div>
+    </header>
+    <section class="news">
         <div class="headlines">
             <p>HEADLINES</p>
         </div>
-        
         <div class="news1">
             <p>yo1</p>
         </div>
@@ -59,7 +75,7 @@
             <p>yo6</p>
         </div>
 
-    </div>
+    </section>
 
 
 
