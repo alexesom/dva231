@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;600;700&display=swap');
 
 
 body {
     margin: 0;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 7%;
+    margin-right: 7%;
     background-color: black;
     font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
     overflow: scroll;
 }
 
@@ -19,20 +20,6 @@ body {
     "logo nav-wrap nav-wrap nav-wrap nav-wrap nav-wrap nav-wrap nav-wrap"
     "logo nav2 nav2 nav2 nav2 nav2 nav2 .";
     background-image: url(https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/starfield-banner.jpg);
-}
-
-.news {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-gap: 10px;
-    grid-template-areas: 
-    "headlines headlines headlines headlines headlines headlines headlines headlines"
-    "headlines headlines headlines headlines headlines headlines headlines headlines"
-    "news1 news1 news2 news2 news3 news3 news3 news3"
-    "news1 news1 news2 news2 news3 news3 news3 news3"
-    "news4 news4 news5 news5 news5 news5 news6 news6"
-    "news4 news4 news5 news5 news5 news5 news6 news6";
 }
 
 ul {
@@ -65,9 +52,8 @@ li:last-child {
 .navbar a {
     color: var(--font);
     text-decoration: none;
-    letter-spacing: 1px;
-    font-weight: bold;
-    font-size: 1em;
+    letter-spacing: 0;
+    font-size: 1.3vw;
 }
 
 .navbar li {
@@ -96,18 +82,20 @@ li:last-child {
 
 .search-wrapper {
     height: 60%;
-    width: 80%;
+    width: 90%;
     display: flex;
     flex-direction: row;
+    margin-top: 3vh;
+    margin-left: 1vw;
 }
 
 .search-form input {
     border: none;
     color: #9E9E9E;
     background: #333333;
-    height: 100%;
+    height: 90%;
     width: 50%;
-    font-size: 1em;
+    font-size: 1vw;
     padding: 0 1vw;
 }
 
@@ -121,11 +109,13 @@ li:last-child {
     align-items: center;
     border: none;
     background: #333333;
-    height: 100%;
+    color: white;
+    height: 90%;
     width: 25%;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1.2vw;
     z-index: 2;
+    padding: 1vw;
 }
 
 .search-form .search-share {
@@ -134,10 +124,10 @@ li:last-child {
     align-items: center;
     border: none;
     background: black;
-    height: 100%;
+    height: 90%;
     width: 25%;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1.2vw;
     z-index: 2;
 }
 
@@ -154,7 +144,6 @@ li:last-child {
     display: flex;
     justify-content: left;
     align-items: center;
-    border-right: 1px;
     width: 100%;
     height: 100%;
 }
@@ -175,7 +164,6 @@ li:last-child {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.3em;
 }
 
 .topics-navbar li a {
@@ -192,18 +180,82 @@ li:last-child {
 
 .topics-navbar a {
     color: white;
-    font-weight: bold;
-    font-size: 0.8em;
+    font-weight: 400;
+    font-size: 0.9vw;
     text-decoration: none;
     padding-right: 0.5vw;
 }
 
-.news div {
-    background-color: white;
+.news {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 30%;
+    grid-auto-rows: 30%;
+    grid-gap: 10px;
+    grid-template-areas: 
+    "headlines headlines headlines headlines"
+    "news1 news2 news3 news3"
+    "news4 news5 news5 news6";
 }
 
-.headlines{
+.news {
+    height: 100%;
+    width: 100%;
+}
+
+
+.headlines {
     grid-area: headlines;
+    overflow: hidden;
+    height: 40vh;
+    min-height: 150px;
+    position: relative;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-text {
+    position: absolute;
+    bottom: 0;
+    margin: 20px;
+
+}
+
+.slide-text__title {
+    background: #395585;
+    opacity: 0.85;
+    font-weight: 600;
+    font-size: 1.5vw;
+    color: rgb(232, 230, 227);
+    padding: 0.5vh 0.5vw;
+    width: fit-content;
+}
+
+.slide-text__title:hover {
+    opacity: 1;
+}
+
+.slide-text__description {
+    background: #181A1B;
+    opacity: 0.9;
+    font-weight: 600;
+    font-size: 2vw;
+    color: rgb(232, 230, 227);
+    padding: 0.5vh 0.5vw;
+    width: fit-content;
+}
+
+.slide-text__description:hover {
+    opacity: 1;
+}
+
+.active {
+    display: block;
 }
 
 .news1{
@@ -223,4 +275,48 @@ li:last-child {
 }
 .news6{
     grid-area: news6;
+}
+
+/* fading animation from https://www.w3schools.com/howto/howto_js_slideshow.asp*/
+.fade {
+    animation-name: fade;
+    animation-duration: 0.5s;
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@media only screen and (max-width: 1450px) {
+    .fixed-header {
+        grid-template-areas: 
+        "logo nav-wrap nav-wrap nav-wrap nav-wrap nav-wrap nav-wrap nav-wrap"
+        "logo nav2 nav2 nav2 nav2 nav2 nav2 nav2";
+    }
+
+    .navbar-wrapper {
+        margin-left: 2vw;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .news {
+        display: grid;
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-areas: 
+        "headlines"
+        "news1"
+        "news2"
+        "news3"
+        "news4"
+        "news5"
+        "news6";
+
+        width: 100%;
+    }
+    
+    [class*="news"] {
+        width: 86vw;
+    }    
 }
