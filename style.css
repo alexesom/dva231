@@ -3,8 +3,8 @@
 
 body {
     margin: 0;
-    margin-left: 7%;
-    margin-right: 7%;
+    margin-left: 10%;
+    margin-right: 10%;
     background-color: black;
     font-family: 'Titillium Web', sans-serif;
     font-weight: 400;
@@ -12,9 +12,7 @@ body {
     font-size: 14px;
 }
 
-a{
-    text-decoration: none;
-}
+
 
 .fixed-header {
     position: sticky;
@@ -33,6 +31,10 @@ a{
 
 ul {
     list-style-type: none;
+}
+
+a{
+    text-decoration: none;
 }
 
 li:last-child {
@@ -196,7 +198,7 @@ li:last-child {
 .news {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 330px);
+    grid-template-rows: repeat(3, 300px);
    
     grid-gap: 10px;
     grid-template-areas: 
@@ -263,7 +265,32 @@ li:last-child {
 
 .news1{
     grid-area: news1;
-    background-color: blue;
+    background-color: rgb(58, 118, 207);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    padding: 5px 5px;
+}
+.news1-txt p{
+    margin: 0;
+}
+.news1-txt h5{
+    margin: 5px 0;
+    border-bottom: solid 1px white;
+    font-weight: 400;
+   
+}
+.news1-ul{
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    border-top: solid 1px white;
+}
+.news1-ul a{
+    color: white;
+
 }
 .news2{
     grid-area: news2;
@@ -366,10 +393,7 @@ li:last-child {
     object-fit: cover;
     height: 100%;
     width: 100%;
-  
-    
-    
-    
+   
 }
 .news4{
     grid-area: news4;
@@ -377,8 +401,23 @@ li:last-child {
 }
 .news5{
     grid-area: news5;
-    background-color: blue;
+    overflow: hidden;
 }
+
+.news5 > a img{
+    display: block;
+    object-position: center;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    transition: 200ms ease-in-out;
+}
+
+
+.news5 > a img:hover{
+   transform: scale(1.2);
+}
+
 .news6{
     grid-area: news6;
     background-color: blue;
@@ -412,7 +451,7 @@ li:last-child {
 @media only screen and (max-width: 1000px) {
     .news {
         display: grid;
-        grid-template-rows: repeat(5, 330px);
+        grid-template-rows: repeat(5, 300px);
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas: 
         "headlines headlines"
@@ -429,7 +468,7 @@ li:last-child {
 @media only screen and (max-width: 700px) {
     .news {
         display: grid;
-        grid-template-rows: repeat(9, 1fr);
+        grid-template-rows: repeat(8, 300px);
         grid-template-areas: 
         "headlines"
         "news1"
@@ -438,7 +477,6 @@ li:last-child {
         "news3"
         "news4"
         "news6"
-        "news5"
         "news5"
         ;
 
