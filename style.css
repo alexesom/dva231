@@ -196,7 +196,7 @@ li:last-child {
 .news {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 300px);
+    grid-template-rows: repeat(3, 330px);
    
     grid-gap: 10px;
     grid-template-areas: 
@@ -401,7 +401,11 @@ li:last-child {
 
 .news4 {
     grid-area: news4;
-    background-color: blue;
+    
+}
+
+.news4 video{
+    width: 100%;
 }
 
 .news5 {
