@@ -17,7 +17,7 @@ function nextSlide() {
 
 function infiniteChangeSlidesLoop() {
     nextSlide();
-    setTimeout(infiniteChangeSlidesLoop, 30000);
+    setTimeout(infiniteChangeSlidesLoop, 5000);
 }
 
 function showSlide(index) {

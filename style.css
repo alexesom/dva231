@@ -2,9 +2,7 @@
 
 
 body {
-    margin: 0;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0 10%;   
     background-color: black;
     font-family: 'Titillium Web', sans-serif;
     font-weight: 400;
@@ -25,6 +23,7 @@ body {
     background-image: url(https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/starfield-banner.jpg);
     z-index: 999;
     width: 100%;
+    
 }
 
 ul {
@@ -61,7 +60,7 @@ li:last-child {
 .navbar a {
     color: var(--font);
     letter-spacing: 0;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
 }
 
 .navbar li {
@@ -72,7 +71,7 @@ li:last-child {
     height: 60%;
     padding-right: 0.5vw;
     padding-left: 0.5vw;
-    font-size: large;
+    
 }
 
 .navbar li:last-child {
@@ -260,9 +259,9 @@ li:last-child {
 
 .news1 {
     grid-area: news1;
+    box-sizing: border-box;
     background-color: #3A709E;
     color: white;
-    box-sizing: border-box;
     height: 100%;
 }
 
@@ -270,9 +269,23 @@ li:last-child {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 0.5vw;
+    margin: 0 5px;
     height: inherit;
+    
 }
+
+/* .news1{
+    grid-area: news1; 
+    background-color: #3A709E;
+    color: white;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding: 0 8px;
+} */
 
 .news1__txt p {
     margin: 0;
@@ -303,7 +316,7 @@ li:last-child {
     
 }
 
-.news2 > img {
+.news2 img {
     display: block;
     object-position: center;
     object-fit: cover;
@@ -312,7 +325,7 @@ li:last-child {
    
 }
 
-.news2 > .news2__txt {
+    .news2__txt {
     position: absolute;
     transform: translateY(-5em);
     
@@ -328,13 +341,13 @@ li:last-child {
     margin-top: 0;
     padding-right: 1vw;
     color: white;
-    padding-left: 5px;
+    padding-left: 0.5vw;
 }
 
 .news2 p {
     background-color: rgba(255, 255, 255, 0.75);
     margin-top: 0;
-    padding-left: 5px;
+    padding-left: 0.5vw;
     height: 300px;
 }
 
@@ -484,6 +497,7 @@ footer {
     .news {
         display: grid;
         grid-template-rows: repeat(8, 300px);
+        grid-template-columns: 1fr;
         grid-template-areas: 
         "headlines"
         "news1"
@@ -502,16 +516,25 @@ footer {
         width: 80vw;
     }
     
-    [class*="news"] {
+    /* [class*="news"] {
         width: 80vw;
-    }    
+    }     */
 
     .news3{
         flex-direction: column;
         
     }
+    .news3__image{
+        width: 100%;
+    }
+    .news3__txt{
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0 10px;
+    }
 
-    .white-square{
+    .news3__whiteSquare{
         height: 50px;
         width: 50px;
         background-color: white;
