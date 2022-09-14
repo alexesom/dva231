@@ -9,12 +9,12 @@
     <title>Home</title>
 </head>
 <body>
-    <header class="fixed-header">
+    <header class="header--fixed">
         <div class="logo">
             <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" alt="nasa-logo.jpg">
         </div>
 
-        <nav class="navbar-wrapper">
+        <nav class="navbar__wrapper">
             <ul class="navbar">
                 <li> <a href="#">Missions</a></li>
                 <li> <a href="#">Galleries</a></li>
@@ -26,19 +26,19 @@
             </ul>
 
             <form class="search-form" action="/search" method="get">
-                <div class="search-wrapper">
-                    <input class="search-bar" type="text" placeholder="Search..">
-                    <button class="search-submit" type="submit">
+                <div class="search-form__wrapper">
+                    <input class="search-form__searchBar" type="text" placeholder="Search..">
+                    <button class="search-form__submit" type="submit">
                         <i class="uil uil-search"></i>
                     </button>
-                    <a class="search-share">
+                    <a class="search-form__share">
                         <i class="uil uil-share-alt"></i>
                     </a>             
                 </div>
             </form>
         </nav>
 
-        <div class="topics-navbar-wrapper">
+        <div class="topics-navbar__wrapper">
             <ul class="topics-navbar">
                 <li><a href="#">International Space Station</a></li>
                 <li><a href="#">Journey to Mars</a></li>
@@ -74,42 +74,45 @@
             </div>
         </div>
         <div class="news1">
-
-            <div class="news1-txt"><h5>Nasa Events</h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere similique ipsum expedita, distinctio ad modi omnis eius repudiandae quod possimus commodi quo ea, rerum necessitatibus voluptates cupiditate eaque at aperiam?</p>
-    </div>
-            
-            <ul class="news1-ul">
-                <li><a href="#">Calendar</a></li>
-                <li><a href="#">Launches and Landings</a></li>
-            </ul>
-            
-            
+            <div class="news1__wrapper">
+                <div class="news1__txt"><h5>Nasa Events</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere similique ipsum expedita, distinctio ad modi omnis eius repudiandae quod possimus commodi quo ea, rerum necessitatibus voluptates cupiditate eaque at aperiam?</p>
+                </div>
+                
+                <ul class="news1__ul">
+                    <li><a href="#">Calendar</a></li>
+                    <li><a href="#">Launches and Landings</a></li>
+                </ul>  
+            </div>         
         </div>
+
         <div class="news2">
             <img src="/img/nasaguy.png" alt="nasaguy.png">
-            <span class="news2-txt"><h4>Expedition 48</h4>
-                <p><b>NASA's Record-breaking Astronaut, Crewmates Safely Return to  Earth.</b> <br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde at quis temporibus sit, accusantium hic voluptatum consectetur sequi aliquam deserunt sapiente similique repellat amet, sunt rem dolore qui incidunt, expedita excepturi. Adipisci hic suscipit sequi impedit rerum dicta voluptatum, voluptates tempore inventore.</p></span>
-        
+            <span class="news2__txt"><h4>Expedition 48</h4>
+                <p>
+                    <b>NASA's Record-breaking Astronaut, Crewmates Safely Return to  Earth.</b><br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed unde at quis temporibus sit, accusantium hic voluptatum consectetur sequi aliquam deserunt sapiente similique repellat amet, sunt rem dolore qui incidunt, expedita excepturi. Adipisci hic suscipit sequi impedit rerum dicta voluptatum, voluptates tempore inventore.
+                </p>
+            </span>
         </div> 
+
         <div class="news3">
-            <div class="news3-image">
+            <div class="news3__image">
                 <img src="/img/asteroidsample.png" alt="asteroid.jpg">
-                <div class="white-square"></div>
+                <div class="news3__whiteSquare"></div>
             </div>
-            <div class="news3-txt">
+            <div class="news3__txt">
                 <h4>NASA to Launch First U.S. Asteroid Sample Return Mission</h4>
                 <p><span>Launching on Sept. 8, 2016</span>, OSIRIS-REx will travel to a near-Earth asteroid called Bennu and bring a small sample back to Earth for study.</p>
-                <ul class="news3-links">
+                <ul class="news3__linksList">
                     <li><a href="#">Mission Site</a></li>
                     <li><a href="#">Briefing Schedule</a></li>
                     <li><a href="#">Launch Updates</a></li>
                     <li><a href="#">Video: To Bennu and Back</a></li>
-                    
                 </ul>
             </div>
         </div>
+
         <div class="news4">
             <p>yo4</p>
         </div>
@@ -119,12 +122,13 @@
             
         </div>
         <div class="news6">
-            <p>yo6</p>
+            <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/NASA?ref_src=twsrc%5Etfw">Tweets by NASA</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
         </div>
 
     </section>
 
-
+    <footer></footer>
     <script src="script.js"></script>
 </body>
 </html>
