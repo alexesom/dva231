@@ -6,6 +6,33 @@ let arrayOfImages = [
     "img/headlines-3.png"
 ]
 
+
+/* NEWS2 */
+let news2Headline = document.getElementById("news2__headline");
+let news2HeadlineP = document.getElementById("news2__headline__p");
+let news2Div = document.getElementById("news2");
+let news2Img = document.getElementById("news2__img");
+let news2Txt = document.getElementById("news2__txt");
+
+/* TEXT HOVER */
+
+news2HeadlineP.addEventListener('mouseover',function hoverNews(){
+
+    news2Headline.style.visibility = "hidden";
+    news2Img.style.visibility = "hidden";
+    news2Txt.style.visibility = "visible";
+
+});
+
+news2Div.addEventListener('mouseleave', function hoverNewsLeave(){
+
+    news2Headline.style.visibility = "visible";
+    news2Img.style.visibility = "visible";
+    news2Txt.style.visibility = "hidden";
+
+});
+
+/* TEXT HOVER END */
 infiniteChangeSlidesLoop();
 
 function nextSlide() {
