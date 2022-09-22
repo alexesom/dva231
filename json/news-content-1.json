@@ -1,0 +1,19 @@
+{
+    "news":[
+        {
+            "title":"Why did NASA pick Didymos for its asteroid-crash mission?", 
+            "imgurl":"https://cdn.mos.cms.futurecdn.net/v7P5zuQKX8MdXVHsWLPSBb-1920-80.jpg",
+            "content":"How do you pick one asteroid out of thousands for a space mission? NASA made that tough choice with its Double Asteroid Redirection Test (DART), which aims to slam a spacecraft into the moonlet Dimorphos on Sept. 27."
+        },
+        {
+            "title":"Autumnal equinox 2022 brings fall to the Northern Hemisphere today (Sept. 22)", 
+            "imgurl":"https://cdn.mos.cms.futurecdn.net/XFqVZBP9VBqYoFTjudrERf-1920-80.jpg",
+            "content":"The Autumnal equinox occurs on Thursday (Sept. 22), at which time the sun will be directly over Earth's equator. This means everyone across the globe gets a day and night lasting approximately 12 hours each. For the northern hemisphere, the September equinox marks the first day of autumn. On the other side of the equator, the southern hemisphere, the Autumnal equinox marks the onset of spring. "
+        },
+        {
+            "title":"Good Mars weather lets NASA's power-starved InSight lander live a little longer", 
+            "imgurl":"https://cdn.mos.cms.futurecdn.net/LpEMMtuqxwACj7WV72j6Ea-1920-80.jpeg",
+            "content":"NASA's InSight lander touched down on Mars in November 2018 with tools meant to help scientists see deep into the Red Planet."
+        }
+        ]
+}
