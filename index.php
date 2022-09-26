@@ -1,3 +1,8 @@
+<?php 
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+    <style>
+  <?php include "style.css" ?>
+</style>
     <title>NASA</title>
 </head>
 <body>
-    <?php
+<?php
         $news_uri = "";
 
         if (isset($_COOKIE["news-uri"])) {
@@ -68,9 +75,56 @@
                 <li><a href="#">History</a></li>
                 <li><a href="#">Benifits to you</a></li>
             </ul>
-            <button class="topics-navbar__signInButton" onclick="window.location.href='news_change.php'">
+
+            <!-- PHP START -->
+            <?php
+          if(isset($_SESSION['username']))
+          {
+            
+            if(isset($_SESSION['username']))
+          {
+            if($_SESSION['username']=='admin')
+            {
+              
+                echo "  <button class='topics-navbar__button' onclick=" . "\""."window.location.href='news_change.php'"."\"".">
+            Change News
+        </button>";
+              
+            }
+        }
+
+        echo "  <button class='topics-navbar__button' onclick=" . "\""."window.location.href='logout.php'"."\"".">
+        Log Out, ".$_SESSION['username']."
+        </button>";
+
+           
+            
+          }else{
+            echo "  <button class='topics-navbar__button' onclick=" . "\""."window.location.href='sign_in.php'"."\"".">
+            Change News
+        </button>";
+
+            echo "  <button class='topics-navbar__button' onclick=" . "\""."window.location.href='sign_in.php'"."\"".">
+            Sign in
+        </button>";
+            
+          }
+         
+          
+          ?>
+
+
+
+          <!-- PHP END 
+        
+          <button class="topics-navbar__signInButton" onclick="window.location.href='news_change.php'">
                 Change news
             </button>
+        
+        
+        -->
+
+            
         </div>
     </header>
     <section class="news">

@@ -192,7 +192,7 @@ li:last-child {
     padding-right: 0.5vw;
 }
 
-.topics-navbar__signInButton {
+.topics-navbar__button {
     border: 0;
     background: #3A709E;
     text-decoration: none;
@@ -200,9 +200,11 @@ li:last-child {
     width: fit-content;
     height: 70%;
     margin-left: 1vw;
+    cursor: pointer;
+
 }
 
-.topics-navbar__signInButton:hover {
+.topics-navbar__button:hover {
     background: #558ab8;
     
 }
@@ -563,4 +565,9 @@ footer {
         right: -45%;
         transform: rotate(45deg);
     }
+}
+
+.session__link{
+    color: white;
+    text-align: center;
 }

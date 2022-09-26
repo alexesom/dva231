@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  
+  background-color: black;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 14px;
+}
+
+
+ul {
+  list-style: none;
+}
+
+.reg-title {
+  text-decoration: underline;
+  text-decoration-color: rgb(143, 10, 10);
+  text-align: center;
+  color: white;
+ 
+}
+
+
+#main {
+  width: 100%;
+  margin: 3.125em auto 0 auto;
+  margin-bottom: 5em;
+}
+
+label {
+  display: flex;
+  margin-bottom: 0.2em;
+  font-size: 1.125rem;
+  color: white;
+}
+
+form {
+  background: #3A709E;
+  padding: 2em 1.5em;
+  border-radius: 1%;
+  border: 2px solid rgb(143, 10, 10);
+}
+
+@media (min-width: 576px) {
+  #main {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  #main {
+    max-width: 720px;
+  }
+}
+
+.form-element {
+  display: block;
+  width: 100%;
+  padding: 0.4em 0.6em;
+  height: 2.5em;
+  border: 1px solid white;
+  border-radius: 0.25em;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-element:focus {
+  border-color: #ebebeb;
+  outline: 0;
+  box-shadow: 0 0 0 0.1rem rgb(143, 10, 10);
+}
+
+textarea {
+  resize: none;
+}
+
+input,
+textarea,
+button,
+select {
+  font-size: inherit;
+  margin-bottom: 0.5em;
+}
+::placeholder {
+  color: black;
+  opacity: 0.5;
+}
+.form-textarea {
+  width: 100%;
+  min-height: 15vh;
+  border: 1px solid #ebebeb;
+  border-radius: 0.25rem;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-submit {
+
+  margin-top: 1em;
+  border: none;
+  background: rgb(143, 10, 10);
+  color: white;
+  padding: 0.5em 0.8em;
+  font-size: 1.5em;
+  letter-spacing: 0.125em;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+
+.btn-login-div{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.form-submit:hover,
+.form-submit:focus {
+  background: white;
+  box-shadow: 0px 0px 5px 1px rgb(143, 10, 10);
+  color: rgb(143, 10, 10);
+}
+
