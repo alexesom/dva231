@@ -1,29 +1,32 @@
 <?php 
-session_start();
+  session_start();
 
-if (isset($_SESSION['username'])) {
-  if($_SESSION['username']!='admin')
+  if (isset($_SESSION['username'])) 
   {
+    if($_SESSION['username']!='admin') 
+    {
+      header('Location: index.php');
+    }
+    
+  } else {
     header('Location: index.php');
   }
-  
-}else{
-  header('Location: index.php');
-}
 
-        $path = "";
+  $path = "";
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          $path = $_POST["news-uri"];
+  if ($_SERVER["REQUEST_METHOD"] == "POST") 
+  {
+    $path = $_POST["news-uri"];
 
-          if(file_exists($path)) {
-            header("Location: " . "index.php");
-            setcookie("news-uri", $path);
-            die();
-          } else {
-            $path = "not exist";
-          }
-        }
+    if(file_exists($path)) 
+    {
+      header("Location: " . "index.php");
+      setcookie("news-uri", $path);
+      die();
+    } else {
+        $path = "not exist";
+    }
+  }
 ?>
 
 <!DOCTYPE html>
