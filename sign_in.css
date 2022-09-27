@@ -17,7 +17,7 @@ ul {
   list-style: none;
 }
 
-.reg-title {
+.sign__in__title {
   text-decoration: underline;
   text-decoration-color: rgb(143, 10, 10);
   text-align: center;
@@ -58,7 +58,7 @@ form {
   }
 }
 
-.form-element {
+.form__element {
   display: block;
   width: 100%;
   padding: 0.4em 0.6em;
@@ -68,7 +68,7 @@ form {
   transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.form-element:focus {
+.form__element:focus {
   border-color: #ebebeb;
   outline: 0;
   box-shadow: 0 0 0 0.1rem rgb(143, 10, 10);
@@ -89,7 +89,7 @@ select {
   color: black;
   opacity: 0.5;
 }
-.form-textarea {
+.form__textarea {
   width: 100%;
   min-height: 15vh;
   border: 1px solid #ebebeb;
@@ -97,8 +97,7 @@ select {
   transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.form-submit {
-
+.form__submit {
   margin-top: 1em;
   border: none;
   background: rgb(143, 10, 10);
@@ -112,14 +111,14 @@ select {
 }
 
 
-.btn-login-div{
+.btn__login__div{
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.form-submit:hover,
-.form-submit:focus {
+.form__submit:hover
+{
   background: white;
   box-shadow: 0px 0px 5px 1px rgb(143, 10, 10);
   color: rgb(143, 10, 10);
