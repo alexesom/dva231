@@ -14,10 +14,11 @@ session_start();
     <title>NASA</title>
 </head>
 <body>
-<?php
+    <?php   
         $news_uri = "";
 
-        if (isset($_COOKIE["news-uri"])) {
+        if (isset($_COOKIE["news-uri"])) 
+        {
             $news_uri = $_COOKIE["news-uri"];
         } else {
             $news_uri = "json/Ass2News.json";
@@ -74,55 +75,33 @@ session_start();
                 <li><a href="#">Benifits to you</a></li>
             </ul>
 
-            <!-- PHP START -->
-            <?php
+        
+        <?php
           if(isset($_SESSION['username']))
           {
             
-            if(isset($_SESSION['username']))
-          {
-            if($_SESSION['username']=='admin')
+            if($_SESSION['username'] == 'admin')
             {
-              
-                echo "  <button class='topics-navbar__button' onclick=" . "\""."window.location.href='news_change.php'"."\"".">
-            Change News
-        </button>";
-              
+                echo "<button class='topics-navbar__button' onclick=" . "\""."window.location.href='news_change.php'"."\"".">
+                    Change News
+                </button>";
+                
             }
-        }
 
-        echo "  <button class='topics-navbar__button' onclick=" . "\""."window.location.href='logout.php'"."\"".">
-        Log Out, ".$_SESSION['username']."
-        </button>";
+            echo "<button class='topics-navbar__button' onclick=" . "\""."window.location.href='logout.php'"."\"".">
+            Log Out, ".$_SESSION['username']."
+            </button>";
 
-           
-            
-          }else{
-            echo "  <button class='topics-navbar__button' onclick=" . "\""."window.location.href='sign_in.php'"."\"".">
-            Change News
-        </button>";
+          } else {
+            echo "<button class='topics-navbar__button' onclick=" . "\""."window.location.href='sign_in.php'"."\"".">
+                Change News
+            </button>";
 
-            echo "  <button class='topics-navbar__button' onclick=" . "\""."window.location.href='sign_in.php'"."\"".">
-            Sign in
-        </button>";
-            
+            echo "<button class='topics-navbar__button' onclick=" . "\""."window.location.href='sign_in.php'"."\"".">
+                Sign in
+            </button>";
           }
-         
-          
-          ?>
-
-
-
-          <!-- PHP END 
-        
-          <button class="topics-navbar__signInButton" onclick="window.location.href='news_change.php'">
-                Change news
-            </button>
-        
-        
-        -->
-
-            
+        ?>
         </div>
     </header>
     <section class="news">
@@ -207,6 +186,6 @@ session_start();
     </section>
 
     <footer></footer>
-    <script src="script.js?v=<?php echo time(); ?>"></script>
+    <script src="script.js"></script>
 </body>
 </html>
