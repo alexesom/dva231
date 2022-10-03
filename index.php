@@ -11,7 +11,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
     <title>NASA</title>
 </head>
 
@@ -32,8 +32,6 @@ session_start();
         fclose($file);
 
         $news_data = json_decode($news_json_text);
-
-        echo $news_data->news[0]->title;
     ?>
     <header class="header--fixed">
         <div class="logo">
@@ -94,7 +92,7 @@ session_start();
         </button>";
 
           } else {
-            echo "<button class='topics-navbar__button' onclick=" . "\""."window.location.href='sign_in.php'"."\"".">
+            echo "<button class='topics-navbar__button' onclick=" . "\""."window.location.href='news_change.php'"."\"".">
             Change News
         </button>";
 
@@ -145,7 +143,7 @@ session_start();
 
         <div id="news2" class="news2">
             <img id="news2__img" src="<?php echo $news_data->news[1]->imgurl ?>" alt="This is a nice image!">
-            <span id="news2__headline" class="news2__headline" onmouseover="hoverNews()">
+            <span id="news2__headline" class="news2__headline">
                 <h4><?php echo $news_data->news[1]->title ?></h4>
                 <p id="news2__headline__p"><b>NASA's Astronaut Return to Earth.</b></p>
             </span>

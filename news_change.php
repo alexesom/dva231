@@ -9,7 +9,7 @@
     }
     
   } else {
-    header('Location: index.php');
+    header('Location: sign_in.php');
   }
 
   $path = "";

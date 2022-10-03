@@ -6,8 +6,10 @@
   box-sizing: border-box;
 }
 body {
-  
-  background-color: black;
+
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('img/spaceshuttle.jpg');
+  background-position:center top;
+  background-size: cover;
   font-family: 'Titillium Web', sans-serif;
   font-size: 14px;
 }
@@ -40,10 +42,11 @@ label {
 }
 
 form {
-  background: #3A709E;
+
+  background: rgba(0, 79, 182, 0.3);
   padding: 2em 1.5em;
   border-radius: 1%;
-  border: 2px solid rgb(143, 10, 10);
+  border: 1px solid rgb(143, 10, 10);
 }
 
 @media (min-width: 576px) {
@@ -111,7 +114,7 @@ select {
 }
 
 
-.btn__login__div{
+.btn__login__div {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -124,3 +127,20 @@ select {
   color: rgb(143, 10, 10);
 }
 
+.index__link{
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.index__link a{
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s linear;
+}
+
+.index__link a:hover
+{
+  transform: scale(1.1);
+}
