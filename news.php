@@ -40,10 +40,15 @@ if(isset($_GET['id']))
         <a href="index.php">Back to Home Page</a>
     </div>
     <div class="news__wrapper">
+        <?php
+            if(!empty($img_path))
+            {
+                echo "<div class='news__img'>";
+                echo "<img src='$img_path' alt='someImg.jpg'>";
+                echo "</div>";
+            }
+        ?>
 
-        <div class="news__img">
-            <img src="<?php echo $img_path ?>" alt="someImg.jpg">
-        </div>
         <div class="news__text">
             <h1><?php echo $title ?></h1>
             <p><?php echo $content ?></p>

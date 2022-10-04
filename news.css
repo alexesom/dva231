@@ -38,6 +38,10 @@ body {
 
 .news__text{
     width: 50%;
+    
+}
+.news__text h1{
+    text-align: center;
 }
 
 .index__link{
