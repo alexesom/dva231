@@ -14,6 +14,21 @@ let news2Div = document.getElementById("news2");
 let news2Img = document.getElementById("news2__img");
 let news2Txt = document.getElementById("news2__txt");
 
+
+/* TEXT HOVER */
+news2HeadlineP.addEventListener('mouseover', function hoverNews() {
+    news2Headline.style.visibility = "hidden";
+    news2Img.style.visibility = "hidden";
+    news2Txt.style.visibility = "visible";
+});
+
+news2Div.addEventListener('mouseleave', function hoverNewsLeave() {
+    news2Headline.style.visibility = "visible";
+    news2Img.style.visibility = "visible";
+    news2Txt.style.visibility = "hidden";
+});
+/* TEXT HOVER END */
+
 /*Hide AJAX div*/
 let searchBar = document.getElementById("search__bar");
 let ajaxDiv = document.getElementById("ajax__dropdown");
@@ -27,22 +42,36 @@ searchBar.addEventListener('keyup', function hideDropdown() {
     }
     
 });
+/*Hide AJAX div end*/
 
-/* TEXT HOVER */
+/* AJAX search */
 
-news2HeadlineP.addEventListener('mouseover', function hoverNews() {
-    news2Headline.style.visibility = "hidden";
-    news2Img.style.visibility = "hidden";
-    news2Txt.style.visibility = "visible";
+$(document).ready(function(){
+
+    $("#search__bar").keyup(function () {
+        var inputText = $("#search__bar").val();
+            if (inputText.length > 2) {
+                $.ajax(
+                    {
+                        url: 'index.php',
+                        method: 'POST',
+                        data: {
+                            search: 1,
+                            query: inputText
+                        },
+                        dataType: 'text',
+                        success: function (data) {
+                            $("#ajax__dropdown").html(data);
+                        }
+                    }
+                );
+            }
+        });
+
 });
+/* AJAX search end */
 
-news2Div.addEventListener('mouseleave', function hoverNewsLeave() {
-    news2Headline.style.visibility = "visible";
-    news2Img.style.visibility = "visible";
-    news2Txt.style.visibility = "hidden";
-});
 
-/* TEXT HOVER END */
 infiniteChangeSlidesLoop();
 
 function nextSlide() {

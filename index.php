@@ -7,10 +7,10 @@ if(isset($_POST['search']))
     $ajax__dropdown = "<ul><li>No news found!</li></ul>";
 
    
-    $q = $connection->real_escape_string($_POST['query']);
+    $searchInput = $connection->real_escape_string($_POST['query']);
 
 
-    $sqlStr = "SELECT * FROM news_data WHERE title LIKE '%$q%'";
+    $sqlStr = "SELECT * FROM news_data WHERE title LIKE '%$searchInput%'";
         $execute = $connection->query($sqlStr);
         if ($execute->num_rows > 0) {
             $ajax__dropdown = "<ul>";
@@ -25,7 +25,7 @@ if(isset($_POST['search']))
                     $ajax__dropdown .= substr($data['title'],0, 45)."..." ."</a></li>";
                 }
                 $temp++;
-                if($temp===3)
+                if($temp===5)
                 {
                     break;
                 }
@@ -50,7 +50,10 @@ if(isset($_POST['search']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <title>NASA</title>
+
 </head>
 
 <body>
@@ -224,9 +227,7 @@ if(isset($_POST['search']))
 
     <footer></footer>
     <script src="script.js?v=<?php echo time();?>"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="ajax_search.js?v=<?php echo time();?>"></script>
+
 </body>
 
 </html>
