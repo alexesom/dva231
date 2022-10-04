@@ -2,7 +2,7 @@
 session_start();
 include('connection.php');
 
-if(isset($_POST['search']))
+if(isset($_POST['recieved']))
 {
     $ajax__dropdown = "<ul><li>No news found!</li></ul>";
 

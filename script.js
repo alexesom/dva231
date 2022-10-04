@@ -56,7 +56,7 @@ $(document).ready(function(){
                         url: 'index.php',
                         method: 'POST',
                         data: {
-                            search: 1,
+                            recieved: 1,
                             query: inputText
                         },
                         dataType: 'text',
@@ -67,7 +67,6 @@ $(document).ready(function(){
                 );
             }
         });
-
 });
 /* AJAX search end */
 
