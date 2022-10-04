@@ -88,9 +88,10 @@ li:last-child {
 }
 
 .search-form__wrapper {
+    position: relative;
+    display: inline-block;
     height: 60%;
     width: 90%;
-    display: flex;
     flex-direction: row;
     margin-top: 3vh;
     margin-left: 1vw;
@@ -101,7 +102,7 @@ li:last-child {
     color: #9E9E9E;
     background: #333333;
     height: 90%;
-    width: 50%;
+    width: 100%;
     font-size: 1vw;
     padding: 0 1vw;
 }
@@ -570,3 +571,35 @@ footer {
     color: white;
     text-align: center;
 }
+
+/* ajax part  */
+
+#ajax__dropdown{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 500;
+    border: 1px solid white;
+    width: 100%;
+    visibility: hidden;
+    
+}
+
+#ajax__dropdown ul{
+    float: left;
+    padding: 0;
+    margin: 0;
+    
+    
+ }
+
+ #ajax__dropdown li{
+    padding: 5px;
+ }
+
+ #ajax__dropdown li:hover{
+    background: rgba(47, 47, 47, 0.8);
+ }
+
+#ajax__dropdown a{
+    color: white;
+ }

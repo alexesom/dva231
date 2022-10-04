@@ -1,8 +1,46 @@
 <?php 
 session_start();
+include('connection.php');
+
+if(isset($_POST['search']))
+{
+    $ajax__dropdown = "<ul><li>No news found!</li></ul>";
+
+   
+    $q = $connection->real_escape_string($_POST['query']);
+
+
+    $sqlStr = "SELECT * FROM news_data WHERE title LIKE '%$q%'";
+        $execute = $connection->query($sqlStr);
+        if ($execute->num_rows > 0) {
+            $ajax__dropdown = "<ul>";
+            $temp = 0;
+            while ($data = $execute->fetch_assoc()){
+                $ajax__dropdown .= "<li>" ."<a href='news.php?id=". $data['id'] ."'>";
+                
+                if(strlen($data['title'])<45)
+                {
+                    $ajax__dropdown .= $data['title'] ."</a></li>";
+                }else{
+                    $ajax__dropdown .= substr($data['title'],0, 45)."..." ."</a></li>";
+                }
+                $temp++;
+                if($temp===3)
+                {
+                    break;
+                }
+            }
+                
+    
+            $ajax__dropdown .= "</ul>";
+        }
+    
+
+    exit($ajax__dropdown);
+}
 
 ?>
-
+<a href=""></a>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,13 +89,8 @@ session_start();
 
             <form class="search-form" action="/search" method="get">
                 <div class="search-form__wrapper">
-                    <input class="search-form__searchBar" type="text" placeholder="Search..">
-                    <button class="search-form__submit" type="submit">
-                        <i class="uil uil-search"></i>
-                    </button>
-                    <a class="search-form__share">
-                        <i class="uil uil-share-alt"></i>
-                    </a>
+                    <input class="search-form__searchBar" id="search__bar" type="text" placeholder="Search..">
+                    <div id="ajax__dropdown"></div>
                 </div>
             </form>
         </nav>
@@ -190,7 +223,10 @@ session_start();
     </section>
 
     <footer></footer>
-    <script src="script.js"></script>
+    <script src="script.js?v=<?php echo time();?>"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="ajax_search.js?v=<?php echo time();?>"></script>
 </body>
 
 </html>

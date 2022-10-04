@@ -34,8 +34,8 @@ if(isset($_POST['submit']))
 
     if($check)
     {
-        $checkSql = "SELECT * FROM users WHERE username = '$username'";
-        $execute = $connection ->query($checkSql);
+        $sqlStr = "SELECT * FROM users WHERE username = '$username'";
+        $execute = $connection ->query($sqlStr);
 
         if($execute->num_rows >0)
         {

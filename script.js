@@ -14,6 +14,20 @@ let news2Div = document.getElementById("news2");
 let news2Img = document.getElementById("news2__img");
 let news2Txt = document.getElementById("news2__txt");
 
+/*Hide AJAX div*/
+let searchBar = document.getElementById("search__bar");
+let ajaxDiv = document.getElementById("ajax__dropdown");
+
+searchBar.addEventListener('keyup', function hideDropdown() {
+    if(searchBar.value.length < 3)
+    {
+        ajaxDiv.style.visibility = "hidden";
+    }else{
+        ajaxDiv.style.visibility = "visible";
+    }
+    
+});
+
 /* TEXT HOVER */
 
 news2HeadlineP.addEventListener('mouseover', function hoverNews() {
