@@ -9,11 +9,52 @@ body {
     overflow: scroll;
     font-size: 14px;
     color: white;
+    padding-top: 10vh;
 }
 
 
 .news__wrapper{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 20px;
+    
 }
+
+.news__img img{
+    min-width: 256px;
+    max-width: 80%;
+    height: auto;
+    border: 2px solid white;
+
+}
+
+.news__img{
+    width: 50%;
+    height: auto;
+    text-align: center;
+    
+}
+
+.news__text{
+    width: 50%;
+}
+
+.index__link{
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .index__link a{
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s linear;
+    font-size: 1.5em;
+  }
+  
+  .index__link a:hover
+  {
+    color: red;
+  }

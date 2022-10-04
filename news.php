@@ -36,19 +36,23 @@ if(isset($_GET['id']))
 </head>
 
 <body>
+    <div class="index__link">
+        <a href="index.php">Back to Home Page</a>
+    </div>
     <div class="news__wrapper">
-        <div class="news__title">
-            <h1><?php echo $title ?></h1>
-        </div>
 
         <div class="news__img">
             <img src="<?php echo $img_path ?>" alt="someImg.jpg">
         </div>
-
-        <div class="news__content">
+        <div class="news__text">
+            <h1><?php echo $title ?></h1>
             <p><?php echo $content ?></p>
         </div>
+
+
+
     </div>
+
 </body>
 
 </html>
