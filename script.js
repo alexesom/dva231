@@ -50,7 +50,7 @@ $(document).ready(function () {
         if (inputText.length > 2) {
             $.ajax(
                 {
-                    url: 'index.php',
+                    url: 'ajax_data.php',
                     method: 'POST',
                     data: {
                         recieved: 1,
