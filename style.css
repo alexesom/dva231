@@ -58,7 +58,7 @@ li:last-child {
 
 
 .navbar a {
-    color: var(--font);
+    color: white;
     letter-spacing: 0;
     font-size: 1.2vw;
 }
@@ -201,7 +201,6 @@ li:last-child {
     height: 70%;
     margin-left: 1vw;
     cursor: pointer;
-
 }
 
 .topics-navbar__button:hover {

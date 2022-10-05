@@ -34,20 +34,18 @@ let searchBar = document.getElementById("search__bar");
 let ajaxDiv = document.getElementById("ajax__dropdown");
 
 searchBar.addEventListener('keyup', function hideDropdown() {
-    if(searchBar.value.length < 3)
-    {
+    if (searchBar.value.length < 3) {
         ajaxDiv.style.visibility = "hidden";
-    }else{
+    } else {
         ajaxDiv.style.visibility = "visible";
     }
-    
+
 });
 /*Hide AJAX div end*/
 
 /* AJAX search */
 
-$(document).ready(function(){
-
+$(document).ready(function () {
     $("#search__bar").keyup(function () {
         var inputText = $("#search__bar").val();
             if (inputText.length > 2) {
@@ -74,7 +72,7 @@ $(document).ready(function(){
 infiniteChangeSlidesLoop();
 
 function nextSlide() {
-    if(++slideIndex > slides.length-1) {
+    if (++slideIndex > slides.length - 1) {
         slideIndex = 0;
     }
     showSlide(slideIndex);
@@ -86,7 +84,7 @@ function infiniteChangeSlidesLoop() {
 }
 
 function showSlide(index) {
-    for(let i = 0; i < slides.length; i++) {
+    for (let i = 0; i < slides.length; i++) {
         console.log(slides[i]);
         slides[i].classList.remove("active");
     }

@@ -2,7 +2,8 @@
 
 
 body {
-    background-color: black;
+    background-image: url(https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/starfield-banner.jpg);
+    color: white;
     font-family: 'Titillium Web', sans-serif;
     font-weight: 400;
     overflow: scroll;
@@ -15,18 +16,109 @@ body {
     height: 100vh;
 }
 
-.form__wrapper {
+span {
+    font-size: 20px;
+}
+
+.server-error {
+   color: red;
+}
+
+.news-json-file__input {
+    width: 65%;
+    border-radius: 0;
+    border: none;
+    color: white;
+    background: #4a8ecd;
+    transition: none;
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    cursor: pointer;
+    margin-right: 1vw;
+}
+
+/* styles partly from boostrap*/
+.news-json-file__input::file-selector-button {
+    color: white;
+    cursor: pointer;
+    background-color: #3A709E;
+    padding: .375rem .75rem;
+    margin: -.375rem -.75rem;
+    -webkit-margin-end: .75rem;
+    margin-inline-end: .75rem;
+    pointer-events: none;
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    border-radius: 0;
+}
+
+.news-json-file__uploadButton, .selectFileButton__submit {
+    border-radius: 0;
+    background-color: #5B6367;
+    border: none;
+    width: 20%;
+    color: white;
+}
+
+.news-json-file__uploadButton:hover, .selectFileButton__submit:hover {
+    background-color: #6e797e;
+}
+
+.selectFileButton__submit {
+    width: auto;
+    height: 100%;
+}
+
+.form-control:hover {
+    background-color: #2e5d81;
+}
+
+.central-container {
     width: 50%;
-    height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 
+
+.central-container__formWrapper, .central-container__fileChoseWrapper {
+    background: #404548;
+    height: 20vh;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.central-container__fileChoseWrapper__selectFileContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
 form {
     display: flex;
     flex-direction: row;
     height: auto;
-    width: 100%;    
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+
+select {
+    border: none;
+    border-radius: 0;
+}
+
+.returnHome__link {
+
 }
