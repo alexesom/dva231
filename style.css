@@ -2,7 +2,7 @@
 
 
 body {
-    margin: 0 10%;   
+    margin: 0 10%;
     background-color: black;
     font-family: 'Titillium Web', sans-serif;
     font-weight: 400;
@@ -23,7 +23,7 @@ body {
     background-image: url(https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/starfield-banner.jpg);
     z-index: 999;
     width: 100%;
-    
+
 }
 
 ul {
@@ -48,7 +48,7 @@ li:last-child {
 
 .navbar {
     grid-area: nav;
-    display: flex;  
+    display: flex;
     justify-content: space-around;
     align-items: center;
     padding-left: 0;
@@ -71,7 +71,7 @@ li:last-child {
     height: 60%;
     padding-right: 0.5vw;
     padding-left: 0.5vw;
-    
+
 }
 
 .navbar li:last-child {
@@ -160,7 +160,7 @@ li:last-child {
     background-color: #404548; /*color from www.nasa.gov*/
     display: flex;
     justify-content: center;
-    font-size: small; 
+    font-size: small;
     width: fit-content;
     padding: 0;
     margin: 0;
@@ -205,14 +205,14 @@ li:last-child {
 
 .topics-navbar__button:hover {
     background: #558ab8;
-    
+
 }
 
 .news {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 330px);
-   
+
     grid-gap: 10px;
     grid-template-areas: 
     "headlines headlines headlines headlines"
@@ -223,7 +223,7 @@ li:last-child {
 .headlines {
     grid-area: headlines;
     overflow: hidden;
-    
+
     min-height: 150px;
     position: relative;
 }
@@ -287,7 +287,7 @@ li:last-child {
     justify-content: space-between;
     margin: 0 5px;
     height: inherit;
-    
+
 }
 
 .news1__txt p {
@@ -298,8 +298,9 @@ li:last-child {
     margin: 5px 0;
     border-bottom: solid 1px white;
     font-weight: 400;
-   
+
 }
+
 .news1__ul {
     display: flex;
     justify-content: space-between;
@@ -307,26 +308,22 @@ li:last-child {
     margin: 0;
     border-top: solid 1px white;
 }
+
 .news1__ul a {
     color: white;
 
 }
 
 
-
-
 /* FIRST ASSIGNMENT */
 
 
-
-    
-    
 .news2 {
     grid-area: news2;
     overflow: hidden;
     background-color: white;
     position: relative;
-    
+
 }
 
 .news2 img {
@@ -335,10 +332,10 @@ li:last-child {
     object-fit: cover;
     height: 100%;
     width: 100%;
-   
+
 }
-    
-    
+
+
 .news2__headline {
     position: absolute;
     width: 100%;
@@ -362,8 +359,8 @@ li:last-child {
     padding-left: 0.5vw;
 }
 
-.news2__txt{
-    
+.news2__txt {
+
     background-color: rgba(255, 255, 255, 0.75);
     position: absolute;
     width: 100%;
@@ -373,14 +370,14 @@ li:last-child {
     padding-right: 5px;
     margin: 0;
     visibility: hidden;
-  
+
 }
 
 .news3 {
     grid-area: news3;
     display: flex;
     overflow: hidden;
-    
+
 }
 
 .news3__txt {
@@ -391,7 +388,7 @@ li:last-child {
 
 .news3__txt h4 {
     margin-top: 5px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     color: rgba(75, 111, 165);
     font-weight: 400;
     font-size: 1.4em;
@@ -412,7 +409,7 @@ li:last-child {
 .news3__image {
     width: 50%;
     overflow: hidden;
-    
+
 }
 
 .news3__whiteSquare {
@@ -435,7 +432,7 @@ li:last-child {
 
 .news4 {
     grid-area: news4;
-    
+
 }
 
 .news4__youtubeVideo {
@@ -457,13 +454,12 @@ li:last-child {
     transition: 200ms ease-in-out;
 }
 
-.news5 > a img:hover{
-   transform: scale(1.2);
+.news5 > a img:hover {
+    transform: scale(1.2);
 }
 
 .news6 {
     grid-area: news6;
-    background-color: #2A2E37;
     display: flex;
     flex-direction: column;
     overflow: scroll;
@@ -479,10 +475,14 @@ footer {
     animation-name: fade;
     animation-duration: 0.5s;
 }
-  
+
 @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
 }
 
 @media only screen and (max-width: 1450px) {
@@ -527,35 +527,35 @@ footer {
         "news3"
         "news4"
         "news6"
-        "news5"
-        ;
+        "news5";
 
         width: 100%;
     }
-    
+
     .fixed-header {
         width: 80vw;
     }
-    
+
     /* [class*="news"] {
         width: 80vw;
     }     */
-
-    .news3{
+    .news3 {
         flex-direction: column;
-        
+
     }
-    .news3__image{
+
+    .news3__image {
         width: 100%;
     }
-    .news3__txt{
+
+    .news3__txt {
         width: 100%;
         box-sizing: border-box;
         margin: 0;
         padding: 0 10px;
     }
 
-    .news3__whiteSquare{
+    .news3__whiteSquare {
         height: 50px;
         width: 50px;
         background-color: white;
@@ -566,39 +566,39 @@ footer {
     }
 }
 
-.session__link{
+.session__link {
     color: white;
     text-align: center;
 }
 
 /* ajax part  */
 
-#ajax__dropdown{
+#ajax__dropdown {
     position: absolute;
     background: rgba(0, 0, 0, 0.8);
     z-index: 500;
     border: 1px solid white;
     width: 100%;
     visibility: hidden;
-    
+
 }
 
-#ajax__dropdown ul{
+#ajax__dropdown ul {
     float: left;
     padding: 0;
     margin: 0;
-    
-    
- }
 
- #ajax__dropdown li{
+
+}
+
+#ajax__dropdown li {
     padding: 5px;
- }
+}
 
- #ajax__dropdown li:hover{
+#ajax__dropdown li:hover {
     background: rgba(47, 47, 47, 0.8);
- }
+}
 
-#ajax__dropdown a{
+#ajax__dropdown a {
     color: white;
- }
+}

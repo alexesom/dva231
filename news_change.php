@@ -43,8 +43,65 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($fileExtension === "json") {
             if ($fileError === 0) {
                 if (!file_exists("json/" . $fileName)) {
-                    $fileServerLocation = "json/" . $fileName;
-                    move_uploaded_file($fileTempLocation, $fileServerLocation);
+                    $file = fopen($fileTempLocation, "r");
+                    $filesize = filesize($fileTempLocation);
+
+                    if ($filesize !== 0) {
+                        $news_json_text = fread($file, $filesize);
+                        fclose($file);
+
+                        $news_array = json_decode($news_json_text, true);
+
+                        if(!empty($news_array["news"])) {
+                            $empty_flag = false;
+                            foreach ($news_array["news"] as $news_piece) {
+                                if(empty($news_piece["title"]) || empty($news_piece["content"]) || empty($news_piece["imgurl"])) {
+                                    $empty_flag = true;
+                                }
+                            }
+
+                            if (!$empty_flag) {
+                                # code below is to store uploading file to folder
+                                #$fileServerLocation = "json/" . $fileName;
+                                #move_uploaded_file($fileTempLocation, $fileServerLocation);
+
+                                for ($i = 0; $i < count($news_array["news"]); $i++) {
+                                    $news_piece = $news_array["news"][$i];
+
+                                    $image_name = basename($news_piece["imgurl"]);
+                                    $image_server_location = "img/news/" . $image_name;
+
+                                    file_put_contents($image_server_location, file_get_contents($news_piece["imgurl"]));
+
+                                    $news_piece["imgurl"] = $image_server_location;
+
+                                    $news_array["news"][$i] = $news_piece;
+                                }
+
+                                #https://stackoverflow.com/questions/11320796/saving-json-string-to-mysql-database
+                                foreach ($news_array["news"] as $news_piece) {
+                                    if ($statement = $connection->prepare('INSERT INTO news_data (title, content, img_path) VALUES (?,?,?)')) {
+                                        $statement->bind_param(
+                                            "sss",
+                                            $news_piece['title'],
+                                            $news_piece['content'],
+                                            $news_piece['imgurl']);
+                                        $statement->execute();
+                                        $statement->close();
+                                    }
+                                }
+
+                                echo "<span class='server-complete'>News where successfully uploaded to database!</span>";
+                            } else {
+                                echo "<span class='server-error'>Json news file has inappropriate format</span>";
+                            }
+                        } else {
+                            echo "<span class='server-error'>Json news file has inappropriate format</span>";
+                        }
+                    } else {
+                        fclose($file);
+                        echo "<span class='server-error'>Json news file is empty</span>";
+                    }
                 } else {
                     echo "<span class='server-error'>File with this name already exists</span>";
                 }
@@ -55,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<span class='server-error'>Please choose file with .json extension</span>";
         }
     } else {
-        echo "<span class='server-error'>Please choose file with .json extension</span>";
+        echo "<span class='server-error'>Please choose file with .json extension and smth</span>";
     }
 }
 ?>
@@ -80,29 +137,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <span>Select the json file to upload</span>
         </div>
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
-            <!--<input type="file" class="news-json-file__input" name="news-file"> -->
-            <input class="news-json-file__input" type="file" id="formFile">
+            <input class="news-json-file__input" type="file" name="news-file" id="formFile">
             <input class="news-json-file__uploadButton" type="submit" value="Upload">
         </form>
     </div>
-    <div class="central-container__fileChoseWrapper">
-        <div>
-            <span>Select the json file to submit</span>
-        </div>
-        <div class="central-container__fileChoseWrapper__selectFileContainer">
-            <select name="news-json" id="news-json">
-                <?php
-                foreach (glob("json/*.json") as $filePath) {
-                    $fileBaseName = basename($filePath);
-                    echo "<option value='$filePath'>$fileBaseName</option>";
-                }
-                ?>
-            </select>
-            <button class="selectFileButton__submit" onclick="setSelectedNewsJson();">Submit json file</button>
-        </div>
-    </div>
 
-    <a class="returnHome__link" href="index.php">Go to Index Page</a>
+    <div class="returnHome__link__wrapper">
+        <a class="returnHome__link" href="index.php">Go to Index Page</a>
+    </div>
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

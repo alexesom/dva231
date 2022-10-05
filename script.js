@@ -33,13 +33,12 @@ news2Div.addEventListener('mouseleave', function hoverNewsLeave() {
 let searchBar = document.getElementById("search__bar");
 let ajaxDiv = document.getElementById("ajax__dropdown");
 
-searchBar.addEventListener('keyup', function hideDropdown() {
+searchBar.addEventListener('keyup', function() {
     if (searchBar.value.length < 3) {
         ajaxDiv.style.visibility = "hidden";
     } else {
         ajaxDiv.style.visibility = "visible";
     }
-
 });
 /*Hide AJAX div end*/
 
@@ -47,24 +46,24 @@ searchBar.addEventListener('keyup', function hideDropdown() {
 
 $(document).ready(function () {
     $("#search__bar").keyup(function () {
-        var inputText = $("#search__bar").val();
-            if (inputText.length > 2) {
-                $.ajax(
-                    {
-                        url: 'index.php',
-                        method: 'POST',
-                        data: {
-                            recieved: 1,
-                            query: inputText
-                        },
-                        dataType: 'text',
-                        success: function (data) {
-                            $("#ajax__dropdown").html(data);
-                        }
+        let inputText = $("#search__bar").val();
+        if (inputText.length > 2) {
+            $.ajax(
+                {
+                    url: 'index.php',
+                    method: 'POST',
+                    data: {
+                        recieved: 1,
+                        query: inputText
+                    },
+                    dataType: 'text',
+                    success: function (data) {
+                        $("#ajax__dropdown").html(data);
                     }
-                );
-            }
-        });
+                }
+            );
+        }
+    });
 });
 /* AJAX search end */
 

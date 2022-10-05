@@ -24,6 +24,10 @@ span {
    color: red;
 }
 
+.server-complete {
+    color: green;
+}
+
 .news-json-file__input {
     width: 65%;
     border-radius: 0;
@@ -56,15 +60,16 @@ span {
     border-radius: 0;
 }
 
-.news-json-file__uploadButton, .selectFileButton__submit {
+.news-json-file__uploadButton {
     border-radius: 0;
     background-color: #5B6367;
     border: none;
-    width: 20%;
+    width: auto;
     color: white;
+    padding: 1vh 1vw;
 }
 
-.news-json-file__uploadButton:hover, .selectFileButton__submit:hover {
+.news-json-file__uploadButton:hover {
     background-color: #6e797e;
 }
 
@@ -85,8 +90,7 @@ span {
     align-items: center;
 }
 
-
-.central-container__formWrapper, .central-container__fileChoseWrapper {
+.central-container__formWrapper {
     background: #404548;
     height: 20vh;
     width: 50%;
@@ -95,14 +99,6 @@ span {
     justify-content: space-around;
     flex-direction: column;
     margin: 10px;
-}
-
-.central-container__fileChoseWrapper__selectFileContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
 }
 
 form {
@@ -119,6 +115,24 @@ select {
     border-radius: 0;
 }
 
+.returnHome__link__wrapper {
+    cursor: pointer;
+    width: 15%;
+    height: 6vh;
+}
 .returnHome__link {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s linear;
+ }
 
+.returnHome__link:hover {
+    color: white;
+    transform: scale(1.1);
 }

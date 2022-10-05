@@ -12,28 +12,20 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $query = "SELECT * FROM users WHERE username = '$username'";
-    $execute = $connection -> query($query);
+    $execute = $connection->query($query);
 
-    if($execute -> num_rows > 0)
-    {
-        while($row = $execute -> fetch_assoc())
-        {
+    if ($execute->num_rows > 0) {
+        while ($row = $execute->fetch_assoc()) {
             $encryptedPassDb = $row['password'];
 
-            if(password_verify($password, $encryptedPassDb))
-            {
+            if (password_verify($password, $encryptedPassDb)) {
                 $_SESSION["username"] = $username;
-                if($username == 'admin')
-                {
-                    header("Location: news_change.php");
-                }else{
-                    header("Location: index.php");
-                }
-            }else{
+                header("Location: index.php");
+            } else {
                 echo "<script>alert('Wrong password!')</script>";
             }
         }
-    }else{
+    } else {
         echo "<script>alert('This account does not exist!')</script>";
     }
 
@@ -54,42 +46,42 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <main>
-        <div id="main">
+<main>
+    <div id="main">
 
-            <form id="survey__form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-                <div class="sign__in__title">
-                    <h1>Sign In</h1>
-                </div>
-
-                <div class="form__div">
-                    <label id="username__label" for="username">Username</label>
-                    <input class="form__element" type="text" name="username" id="username"
-                        placeholder="Enter your username" required />
-                </div>
-
-                <div class="form__div">
-                    <label id="password__label" for="password">Password</label>
-                    <input class="form__element" type="password" name="password" id="password"
-                        placeholder="Enter Your Password" required />
-                </div>
-
-                <div class="btn__login__div">
-                    <div class="form__div">
-                        <button type="submit" id="submit" name="submit" class="form__submit">Sign In</button>
-                    </div>
-
-                    <div class="register__div">
-                        <input type="button" value="Register" name="register" id="reg__btn" class="form__submit"
-                            onclick="window.location.href='register.php'" />
-                    </div>
-                </div>
-            </form>
-            <div class="index__link">
-                <a href="index.php">Back to Home Page</a>
+        <form id="survey__form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+            <div class="sign__in__title">
+                <h1>Sign In</h1>
             </div>
+
+            <div class="form__div">
+                <label id="username__label" for="username">Username</label>
+                <input class="form__element" type="text" name="username" id="username"
+                       placeholder="Enter your username" required/>
+            </div>
+
+            <div class="form__div">
+                <label id="password__label" for="password">Password</label>
+                <input class="form__element" type="password" name="password" id="password"
+                       placeholder="Enter Your Password" required/>
+            </div>
+
+            <div class="btn__login__div">
+                <div class="form__div">
+                    <button type="submit" id="submit" name="submit" class="form__submit">Sign In</button>
+                </div>
+
+                <div class="register__div">
+                    <input type="button" value="Register" name="register" id="reg__btn" class="form__submit"
+                           onclick="window.location.href='register.php'"/>
+                </div>
+            </div>
+        </form>
+        <div class="index__link">
+            <a href="index.php">Back to Home Page</a>
         </div>
-    </main>
+    </div>
+</main>
 
 </body>
 

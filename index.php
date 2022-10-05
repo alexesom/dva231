@@ -1,44 +1,41 @@
-<?php 
+<?php
 session_start();
 include('connection.php');
 
-if(isset($_POST['recieved']))
-{
+if (isset($_POST['recieved'])) {
     $ajax__dropdown = "<ul><li>No news found!</li></ul>";
 
-   
+
     $searchInput = $connection->real_escape_string($_POST['query']);
 
 
-    $sqlStr = "SELECT * FROM news_data WHERE title LIKE '%$searchInput%'";
-        $execute = $connection->query($sqlStr);
-        if ($execute->num_rows > 0) {
-            $ajax__dropdown = "<ul>";
-            $temp = 0;
-            while ($data = $execute->fetch_assoc()){
-                $ajax__dropdown .= "<li>" . "<a href='news.php?id=" . $data['id'] ."'>";
+    $sqlStr = "SELECT * FROM news_data WHERE title LIKE '%$searchInput%' LIMIT 5";
+    $execute = $connection->query($sqlStr);
+    if ($execute->num_rows > 0) {
+        $ajax__dropdown = "<ul>";
+        while ($data = $execute->fetch_assoc()) {
+            $ajax__dropdown .= "<li>" . "<a href='news.php?id=" . $data['id'] . "'>";
 
-                if(strlen($data['title'])<45)
-                {
-                    $ajax__dropdown .= $data['title'] ."</a></li>";
-                }else{
-                    $ajax__dropdown .= substr($data['title'],0, 45)."..." ."</a></li>";
-                }
-                $temp++;
-                if($temp===5)
-                {
-                    break;
-                }
+            if (strlen($data['title']) < 45) {
+                $ajax__dropdown .= $data['title'] . "</a></li>";
+            } else {
+                $ajax__dropdown .= substr($data['title'], 0, 45) . "..." . "</a></li>";
             }
-                
-    
-            $ajax__dropdown .= "</ul>";
         }
-    
-
+        $ajax__dropdown .= "</ul>";
+    }
     exit($ajax__dropdown);
 }
 
+    $sqlStr = "SELECT * FROM news_data ORDER BY id DESC LIMIT 3";
+    $execute = $connection->query($sqlStr);
+
+    $news_data = [];
+    if ($execute->num_rows > 0) {
+        while ($data = $execute->fetch_assoc()) {
+            array_push($news_data, $data);
+        }
+    }
 ?>
 <a href=""></a>
 <!DOCTYPE html>
@@ -51,41 +48,11 @@ if(isset($_POST['recieved']))
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <title>NASA</title>
 </head>
 
 <body>
-<?php
-$NEWS_INITIAL_PATH = "json/Ass2News.json";
-
-if (isset($_COOKIE["news-json-path"])) {
-    $news_uri = $_COOKIE["news-json-path"];
-} else {
-    setcookie("news-json-path", $NEWS_INITIAL_PATH);
-    $_COOKIE["news-json-path"] = $NEWS_INITIAL_PATH;
-}
-
-$news_uri = $_COOKIE["news-json-path"];
-
-$file = fopen($news_uri, "r");
-$filesize = filesize($news_uri);
-
-if ($filesize === 0) {
-    echo "<script>
-        alert(\"Json news file is empty\\nThe initial json file was chosen instead\");
-    </script>";
-
-    $file = fopen($NEWS_INITIAL_PATH, "r");
-    $filesize = filesize($NEWS_INITIAL_PATH);
-}
-
-$news_json_text = fread($file, $filesize);
-fclose($file);
-
-$news_data = json_decode($news_json_text);
-?>
-
 <header class="header--fixed">
     <div class="logo">
         <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" alt="nasa-logo.jpg">
@@ -104,7 +71,7 @@ $news_data = json_decode($news_json_text);
 
         <form class="search-form" action="/search" method="get">
             <div class="search-form__wrapper">
-                <input class="search-form__searchBar" id="search__bar"type="text" placeholder="Search..">
+                <input class="search-form__searchBar" id="search__bar" type="text" placeholder="Search..">
                 <div id="ajax__dropdown"></div>
             </div>
         </form>
@@ -126,10 +93,9 @@ $news_data = json_decode($news_json_text);
 
         <?php
         if (isset($_SESSION['username'])) {
-
             if ($_SESSION['username'] == 'admin') {
                 echo "<button class='topics-navbar__button' onclick=" . "\"" . "window.location.href='news_change.php'" . "\"" . ">
-            Change News
+            Upload news
         </button>";
             }
 
@@ -138,10 +104,6 @@ $news_data = json_decode($news_json_text);
         </button>";
 
         } else {
-            echo "<button class='topics-navbar__button' onclick=" . "\"" . "window.location.href='news_change.php'" . "\"" . ">
-            Change News
-        </button>";
-
             echo "<button class='topics-navbar__button' onclick=" . "\"" . "window.location.href='sign_in.php'" . "\"" . ">
             Sign in
         </button>";
@@ -179,8 +141,8 @@ $news_data = json_decode($news_json_text);
     <div class="news1">
         <div class="news1__wrapper">
             <div class="news1__txt">
-                <h5><?php echo $news_data->news[0]->title ?></h5>
-                <p><?php echo $news_data->news[0]->content ?></p>
+                <h5><?php echo $news_data[0]["title"] ?></h5>
+                <p><?php echo $news_data[0]["content"] ?></p>
             </div>
 
             <ul class="news1__ul">
@@ -191,26 +153,26 @@ $news_data = json_decode($news_json_text);
     </div>
 
     <div id="news2" class="news2">
-        <img id="news2__img" src="<?php echo $news_data->news[1]->imgurl ?>" alt="This is a nice image!">
+        <img id="news2__img" src="<?php echo $news_data[1]["img_path"] ?>" alt="This is a nice image!">
         <span id="news2__headline" class="news2__headline">
-                <h4><?php echo $news_data->news[1]->title ?></h4>
+                <h4><?php echo $news_data[1]["title"] ?></h4>
                 <p id="news2__headline__p"><b>NASA's Astronaut Return to Earth.</b></p>
             </span>
         <span id="news2__txt" class="news2__txt">
                 <p>
-                    <?php echo $news_data->news[1]->content ?>
+                    <?php echo $news_data[1]["content"] ?>
                 </p>
             </span>
     </div>
 
     <div class="news3">
         <div class="news3__image">
-            <img src="<?php echo $news_data->news[2]->imgurl ?>" alt="This is a nice image!">
+            <img src="<?php echo $news_data[2]["img_path"] ?>" alt="This is a nice image!">
             <div class="news3__whiteSquare"></div>
         </div>
         <div class="news3__txt">
-            <h4><?php echo $news_data->news[2]->title ?></h4>
-            <p><?php echo $news_data->news[2]->content ?></p>
+            <h4><?php echo $news_data[2]["title"] ?></h4>
+            <p><?php echo $news_data[2]["content"] ?></p>
             <ul class="news3__linksList">
                 <li><a href="#">Mission Site</a></li>
                 <li><a href="#">Briefing Schedule</a></li>
@@ -238,8 +200,8 @@ $news_data = json_decode($news_json_text);
     </div>
 </section>
 
-    <footer></footer>
-    <script src="script.js?v=<?php echo time();?>"></script>
+<footer></footer>
+<script src="script.js?v=<?php echo time(); ?>"></script>
 
 </body>
 

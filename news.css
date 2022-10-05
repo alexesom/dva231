@@ -2,7 +2,7 @@
 
 
 body {
-    margin: 0 10%;   
+    margin: 0 10%;
     background-color: black;
     font-family: 'Titillium Web', sans-serif;
     font-weight: 400;
@@ -13,15 +13,15 @@ body {
 }
 
 
-.news__wrapper{
+.news__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    
+
 }
 
-.news__img img{
+.news__img img {
     min-width: 256px;
     max-width: 80%;
     height: auto;
@@ -29,36 +29,36 @@ body {
 
 }
 
-.news__img{
+.news__img {
     width: 50%;
     height: auto;
     text-align: center;
-    
+
 }
 
-.news__text{
+.news__text {
     width: 50%;
-    
+
 }
-.news__text h1{
+
+.news__text h1 {
     text-align: center;
 }
 
-.index__link{
+.index__link {
     margin-bottom: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .index__link a{
+}
+
+.index__link a {
     text-decoration: none;
     color: white;
     transition: all 0.2s linear;
     font-size: 1.5em;
-  }
-  
-  .index__link a:hover
-  {
+}
+
+.index__link a:hover {
     color: red;
-  }
+}

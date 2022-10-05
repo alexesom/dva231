@@ -7,7 +7,6 @@
 }
 
 body {
-
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/spaceshuttle.jpg');
     background-position: center top;
     background-size: cover;
@@ -25,14 +24,11 @@ ul {
     text-decoration-color: rgb(143, 10, 10);
     text-align: center;
     color: white;
-
 }
-
 
 #main {
     width: 100%;
-    margin: 3.125em auto 0 auto;
-    margin-bottom: 5em;
+    margin: 3.125em auto 5em;
 }
 
 label {
@@ -43,7 +39,6 @@ label {
 }
 
 form {
-
     background: rgba(0, 79, 182, 0.3);
     padding: 2em 1.5em;
     border-radius: 1%;
@@ -68,7 +63,6 @@ form {
     padding: 0.4em 0.6em;
     height: 2.5em;
     border: 1px solid white;
-    border-radius: 0.25em;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -111,7 +105,7 @@ select {
     padding: 0.5em 0.8em;
     font-size: 1.5em;
     letter-spacing: 0.125em;
-    border-radius: 20px;
+    border-radius: 0;
     cursor: pointer;
     transition: all 0.2s linear;
 }
@@ -125,7 +119,7 @@ select {
 
 .form__submit:hover {
     background: white;
-    box-shadow: 0px 0px 5px 1px rgb(143, 10, 10);
+    box-shadow: 0 0 5px 1px rgb(143, 10, 10);
     color: rgb(143, 10, 10);
 }
 
